@@ -1,8 +1,8 @@
-# Trend–Context Fusion Network (TCFN) for Solar Photovoltaic Power Forecasting
+## Trend–Context Fusion Network (TCFN) for Solar Photovoltaic Power Forecasting
 
 Official implementation of the paper **“Trend–Context Fusion Network with Multi-Head Attention for Solar Photovoltaic Power Forecasting”** (submitted to the *Journal of Platform Technology*).
 
-## Overview
+### Overview
 
 Accurate forecasting of photovoltaic (PV) power generation is critical for smart-grid stability.  
 TCFN is a hybrid deep learning architecture that integrates:
@@ -14,7 +14,7 @@ TCFN is a hybrid deep learning architecture that integrates:
 
 Experiments on real-world datasets (Dangjin Landfill: inland; Gwangyang Port: coastal) show that TCFN consistently outperforms strong baseline models, including Transformer-based approaches, in terms of RMSE and R².
 
-## Repository Structure
+### Repository Structure
 
 ```text
 data/
@@ -27,30 +27,30 @@ code/
   ablation_study_variants.ipynb          # Ablation study experiments
 ```
 
-## Usage
+### Usage
 
-### 1) Install dependencies
+#### 1) Install dependencies
 
 ```text
 pip install tensorflow pandas numpy scikit-learn shap matplotlib
 ```
 
-### 2) Run the main pipeline (TCFN + SHAP)
+#### 2) Run the main pipeline (TCFN + SHAP)
 
 ```text
 python code/main_tcfn_pipeline.py
 ```
 
-### 3) Run benchmark comparisons
+#### 3) Run benchmark comparisons
 
 ```text
 python code/benchmark_comparison.py
 ```
 
-## Citation
+### Citation
 
 If you use this code, please cite the paper (BibTeX will be added after acceptance).
 
-## Contact
+### Contact
 
 For inquiries, please contact the corresponding author.
