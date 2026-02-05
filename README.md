@@ -22,8 +22,8 @@ data/
   Gwangyang_Port_Site2_PV_Dataset.csv    # Coastal site
 
 code/
-  main_tcfn_pipeline.py                  # Grid search + TCFN training + SHAP-based XAI
-  benchmark_comparison.py                # Comparison with nine baseline models
+  main_tcfn_pipeline.ipynb                  # Grid search + TCFN training + SHAP-based XAI
+  benchmark_comparison.ipynb                # Comparison with nine baseline models
   ablation_study_variants.ipynb          # Ablation study experiments
 ```
 
@@ -44,7 +44,7 @@ python code/main_tcfn_pipeline.py
 ### 3) Run benchmark comparisons
 
 ```text
-python code/benchmark_comparison.py
+python code/benchmark_comparison.ipynb
 ```
 
 ## Citation
