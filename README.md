@@ -6,8 +6,7 @@ Official implementation of the paper **“Trend–Context Fusion Network with Mu
 
 ## Overview
 
-Accurate forecasting of photovoltaic (PV) power generation is critical for smart-grid stability and efficient energy management.  
-TCFN is a hybrid deep learning architecture designed to capture both local temporal patterns and broader contextual dependencies by integrating:
+Accurate forecasting of PV power generation is critical for smart-grid stability and efficient energy management. TCFN is a hybrid deep learning architecture designed to capture both local temporal patterns and broader contextual dependencies by integrating:
 
 - **1D-CNN** for local trend extraction  
 - **Multi-Head Attention** for global context modeling  
