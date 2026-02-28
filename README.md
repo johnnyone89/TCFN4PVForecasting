@@ -1,6 +1,6 @@
 # Trend–Context Fusion Network (TCFN) for Solar Photovoltaic Power Forecasting
 
-Official implementation of the paper **“Trend–Context Fusion Network with Multi-Head Attention for Solar Photovoltaic Power Forecasting”** (submitted to the *Journal of Platform Technology*).
+Official implementation of the paper **“Trend–Context Fusion Network with Multi-Head Attention for Solar Photovoltaic Power Forecasting”** **published in the *Journal of Platform Technology***.
 
 ## Overview
 
@@ -49,7 +49,9 @@ python code/benchmark_comparison.ipynb
 
 ## Citation
 
-If you use this code, please cite the paper (BibTeX will be added after acceptance).
+If you find this repository useful in your research, please cite:
+
+- Shin, Y.; Moon, J. *Trend–Context Fusion Network with Multi-Head Attention for Solar Photovoltaic Power Forecasting*. *Journal of Platform Technology* **2026**, *14*(1), 3–21. DOI: 10.23023/JPT.2026.14.1.003
 
 ## Contact
 
