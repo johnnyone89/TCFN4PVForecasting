@@ -186,8 +186,8 @@ Citation information for TRACE will be added after publication.
 
 For questions regarding the datasets, implementation, experimental reproduction, or research collaboration, please contact:
 
-Jihoon Moon, Ph.D.
-Assistant Professor
-Department of Data Science, Duksung Women’s University
-Seoul 01369, Republic of Korea
+Jihoon Moon, Ph.D.<br>
+Assistant Professor<br>
+Department of Data Science, Duksung Women’s University<br>
+Seoul 01369, Republic of Korea<br>
 Email: jmoon25@duksung.ac.kr
