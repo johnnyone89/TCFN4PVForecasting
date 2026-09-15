@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the TCFN article and this repository. TRACE citation details will be added after publication."
+title: "TCFN and TRACE for Photovoltaic Power Forecasting"
+type: software
+authors:
+  - family-names: Moon
+    given-names: Jihoon
+    affiliation: Duksung Women's University
+repository-code: "https://github.com/johnnyone89/TCFN4PVForecasting"
+url: "https://github.com/johnnyone89/TCFN4PVForecasting"
+keywords:
+  - photovoltaic power forecasting
+  - multihorizon forecasting
+  - chronological validation
+  - structural-zero modeling
+  - explainable artificial intelligence
+preferred-citation:
+  type: article
+  title: "Trend–Context Fusion Network with Multi-Head Attention for Solar Photovoltaic Power Forecasting"
+  authors:
+    - family-names: Shin
+      given-names: Y.
+    - family-names: Moon
+      given-names: Jihoon
+  journal: "Journal of Platform Technology"
+  year: 2026
+  volume: 14
+  issue: 1
+  start: 3
+  end: 21
+  doi: "10.23023/JPT.2026.14.1.003"
