@@ -39,14 +39,6 @@ In TRACE, **chronological** means that measured predictors are restricted to inf
 
 ## Reproduction workflow
 
-```mermaid
-flowchart LR
-    A["PV and weather data"] --> B["Hourly data audit"]
-    B --> C["Train / validation / test split"]
-    C --> D["Model training and selection"]
-    D --> E["24-step forecast and evaluation"]
-```
-
 Running the main TRACE notebook from top to bottom performs the following steps:
 
 1. Loads the Dangjin and Gwangyang datasets and checks their columns and hourly timestamps.
