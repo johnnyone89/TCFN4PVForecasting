@@ -1,0 +1,15 @@
+# Reproducibility baseline. The recorded TRACE run used Python 3.9.25.
+numpy==2.0.2
+pandas==2.3.3
+scikit-learn==1.6.1
+torch==2.8.0
+
+# Shared analysis and visualization dependencies.
+scipy>=1.11,<2
+matplotlib>=3.8,<4
+seaborn>=0.13,<1
+joblib>=1.4,<2
+shap>=0.45,<0.50
+jupyterlab>=4,<5
+
+# Install requirements-tcfn.txt as well when running the original TensorFlow notebooks.

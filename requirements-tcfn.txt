@@ -1,0 +1,5 @@
+-r requirements.txt
+
+# Original TCFN notebooks use TensorFlow/Keras.
+# TensorFlow 2.18 accepts the NumPy 2.0 baseline recorded for TRACE.
+tensorflow>=2.18,<2.19
