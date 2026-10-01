@@ -6,7 +6,8 @@
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebooks-F37626?logo=jupyter&logoColor=white)](https://jupyter.org/)
-[![TCFN DOI](https://img.shields.io/badge/DOI-10.23023%2FJPT.2026.14.1.003-2F80ED)](https://doi.org/10.23023/JPT.2026.14.1.003)
+[![TRACE DOI](https://img.shields.io/badge/TRACE%20DOI-10.3390%2Feng7100515-2F80ED)](https://doi.org/10.3390/eng7100515)
+[![TCFN DOI](https://img.shields.io/badge/TCFN%20DOI-10.23023%2FJPT.2026.14.1.003-2F80ED)](https://doi.org/10.23023/JPT.2026.14.1.003)
 
 [Overview](#overview) · [Workflow](#reproduction-workflow) · [Run](#quick-start) · [Citation](#citation)
 
@@ -27,12 +28,25 @@ The workflow follows the experimental protocol described in the publication, inc
 
 ## Publication
 
-This repository accompanies:
+This repository accompanies **two published photovoltaic power forecasting studies**, corresponding to the TRACE and TCFN implementations provided here.
+
+### TRACE
+
+> **Moon, J. TRACE: Temporal Regime-Aware Chronological Ensemble Learning for Rolling 24-Step Photovoltaic Power Forecasting.** *Eng* **2026**, *7*(10), 515.  
+> DOI: https://doi.org/10.3390/eng7100515  
+> Article: https://www.mdpi.com/2673-4117/7/10/515
+
+The TRACE study presents a **Temporal Regime-Aware Chronological Ensemble Learning** framework for rolling direct 24-step photovoltaic power forecasting under a chronological information boundary.
+
+### TCFN
 
 > **Shin, Y.; Moon, J. Trend–Context Fusion Network with Multi-Head Attention for Solar Photovoltaic Power Forecasting.** *Journal of Platform Technology* **2026**, *14*(1), 3–21.  
-> DOI: https://doi.org/10.23023/JPT.2026.14.1.003
+> DOI: https://doi.org/10.23023/JPT.2026.14.1.003  
+> Journal issue: https://jpt.ictps.org/all_volumes/volume11volume14/volume-14-no-1
 
-The associated study introduces the TCFN architecture and provides the experimental foundation for photovoltaic power forecasting using trend representation, contextual information, and temporal dependency modeling.
+The TCFN study introduces the **Trend–Context Fusion Network**, integrating convolutional feature extraction, multi-head attention, and LSTM-based temporal representation learning for photovoltaic power forecasting.
+
+Accordingly, this repository serves as the reproducibility companion for **both TRACE and TCFN**.
 
 ## Included materials
 
@@ -111,7 +125,33 @@ The repository is intended for scientific reproduction of the reported experimen
 
 ## Citation
 
-If you use this repository, code, datasets, or experimental protocol in academic work, please cite:
+If you use this repository, its code, datasets, forecasting workflows, or experimental protocols in academic work, please cite the publication corresponding to the material you use.
+
+### TRACE
+
+Use this citation for the TRACE notebook, chronological ensemble framework, rolling 24-step forecasting protocol, or TRACE-related results:
+
+> Moon, J. **TRACE: Temporal Regime-Aware Chronological Ensemble Learning for Rolling 24-Step Photovoltaic Power Forecasting.** *Eng* **2026**, *7*(10), 515. https://doi.org/10.3390/eng7100515
+
+```bibtex
+@article{moon2026trace,
+  author  = {Moon, Jihoon},
+  title   = {TRACE: Temporal Regime-Aware Chronological Ensemble Learning for Rolling 24-Step Photovoltaic Power Forecasting},
+  journal = {Eng},
+  year    = {2026},
+  volume  = {7},
+  number  = {10},
+  pages   = {515},
+  doi     = {10.3390/eng7100515},
+  url     = {https://doi.org/10.3390/eng7100515}
+}
+```
+
+### TCFN
+
+Use this citation for the TCFN architecture, TCFN notebooks, or TCFN-related results:
+
+> Shin, Y.; Moon, J. **Trend–Context Fusion Network with Multi-Head Attention for Solar Photovoltaic Power Forecasting.** *Journal of Platform Technology* **2026**, *14*(1), 3–21. https://doi.org/10.23023/JPT.2026.14.1.003
 
 ```bibtex
 @article{shin2026tcfn,
@@ -122,9 +162,12 @@ If you use this repository, code, datasets, or experimental protocol in academic
   volume  = {14},
   number  = {1},
   pages   = {3--21},
-  doi     = {10.23023/JPT.2026.14.1.003}
+  doi     = {10.23023/JPT.2026.14.1.003},
+  url     = {https://doi.org/10.23023/JPT.2026.14.1.003}
 }
 ```
+
+If your work uses **both TRACE and TCFN components**, please cite **both publications**.
 
 ## Contact
 
