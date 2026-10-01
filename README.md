@@ -156,7 +156,7 @@ Use this citation for the TCFN architecture, TCFN notebooks, or TCFN-related res
 ```bibtex
 @article{shin2026tcfn,
   author  = {Shin, Y. and Moon, J.},
-  title   = {Trend--Context Fusion Network with Multi-Head Attention for Solar Photovoltaic Power Forecasting},
+  title   = {Trend-Context Fusion Network with Multi-Head Attention for Solar Photovoltaic Power Forecasting},
   journal = {Journal of Platform Technology},
   year    = {2026},
   volume  = {14},
