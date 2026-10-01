@@ -2,14 +2,13 @@
 
 # TRACE & TCFN for Photovoltaic Power Forecasting
 
-**Data and executable notebooks for reproducing the forecasting workflow described in the paper**
+**Official reproducibility package for chronological ensemble forecasting and trend–context fusion photovoltaic power prediction**
 
-[![Python 3.9](https://img.shields.io/badge/Python-3.9.25-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebooks-F37626?logo=jupyter&logoColor=white)](https://jupyter.org/)
-[![Notebook quality](https://github.com/johnnyone89/TCFN4PVForecasting/actions/workflows/notebook-quality.yml/badge.svg)](https://github.com/johnnyone89/TCFN4PVForecasting/actions/workflows/notebook-quality.yml)
 [![TCFN DOI](https://img.shields.io/badge/DOI-10.23023%2FJPT.2026.14.1.003-2F80ED)](https://doi.org/10.23023/JPT.2026.14.1.003)
 
-[Overview](#overview) · [Workflow](#reproduction-workflow) · [Run](#quick-start) · [Expected results](#expected-results) · [Citation](#citation)
+[Overview](#overview) · [Workflow](#reproduction-workflow) · [Run](#quick-start) · [Citation](#citation)
 
 </div>
 
@@ -17,118 +16,119 @@
 
 ## Overview
 
-This repository provides the datasets and executable notebooks used for photovoltaic (PV) power forecasting with:
+This repository provides the datasets and executable notebooks supporting the published photovoltaic (PV) power forecasting study.
 
-- **TCFN — Trend–Context Fusion Network**, combining 1D-CNN, multi-head attention, and LSTM components.
-- **TRACE — Temporal Regime-Aware Chronological Ensemble**, using the most recent 168 observed hours to produce a direct 24-hour forecast.
+The repository contains two complementary forecasting frameworks:
 
-The notebooks follow the same overall sequence described in the paper: data loading, integrity checks, chronological splitting, feature construction, model training, validation-based selection, final refitting, and held-out evaluation.
+- **TCFN — Trend–Context Fusion Network**: a deep forecasting architecture integrating convolutional feature extraction, multi-head attention, and LSTM-based temporal representation learning.
+- **TRACE — Temporal Regime-Aware Chronological Ensemble**: a chronological forecasting framework designed for direct 24-hour-ahead PV power prediction using the recent 168-hour observation window.
 
-In TRACE, **chronological** means that measured predictors are restricted to information available at the forecast origin. It does not refer to causal-effect identification.
+The workflow follows the experimental protocol described in the publication, including data integrity checking, chronological splitting, feature construction, model training, validation-based configuration selection, final refitting, and held-out evaluation.
+
+## Publication
+
+This repository accompanies:
+
+> **Shin, Y.; Moon, J. Trend–Context Fusion Network with Multi-Head Attention for Solar Photovoltaic Power Forecasting.** *Journal of Platform Technology* **2026**, *14*(1), 3–21.  
+> DOI: https://doi.org/10.23023/JPT.2026.14.1.003
+
+The associated study introduces the TCFN architecture and provides the experimental foundation for photovoltaic power forecasting using trend representation, contextual information, and temporal dependency modeling.
 
 ## Included materials
 
 | Path | Description |
 |---|---|
-| [`code/TRACE_Guarded_Dual_Strategy_PV_Forecasting.ipynb`](code/TRACE_Guarded_Dual_Strategy_PV_Forecasting.ipynb) | End-to-end TRACE implementation |
-| [`code/main_tcfn_pipeline.ipynb`](code/main_tcfn_pipeline.ipynb) | Main TCFN training and evaluation pipeline |
-| [`code/benchmark_comparison.ipynb`](code/benchmark_comparison.ipynb) | Benchmark-model comparison |
-| [`code/ablation_study_variants.ipynb`](code/ablation_study_variants.ipynb) | TCFN ablation experiments |
-| [`data/Dangjin_Landfill_PV_Dataset.csv`](data/Dangjin_Landfill_PV_Dataset.csv) | Dangjin PV and weather data |
-| [`data/Gwangyang_Port_Site2_PV_Dataset.csv`](data/Gwangyang_Port_Site2_PV_Dataset.csv) | Gwangyang PV and weather data |
+| `code/TRACE_Guarded_Dual_Strategy_PV_Forecasting.ipynb` | End-to-end TRACE implementation |
+| `code/main_tcfn_pipeline.ipynb` | Main TCFN training and evaluation pipeline |
+| `code/benchmark_comparison.ipynb` | Benchmark comparison experiments |
+| `code/ablation_study_variants.ipynb` | TCFN ablation experiments |
+| `data/` | PV generation and meteorological datasets |
 
 ## Reproduction workflow
 
-Running the main TRACE notebook from top to bottom performs the following steps:
+The notebooks reproduce the complete experimental pipeline:
 
-1. Loads the Dangjin and Gwangyang datasets and checks their columns and hourly timestamps.
-2. Reconstructs the study period from January 2015 through August 2019.
-3. Applies the same chronological split used in the paper:
-   - training: January 2015–April 2017;
-   - validation: May 2017–June 2018;
-   - test: July 2018–August 2019.
-4. Uses the preceding 168 hours to construct each forecasting origin.
-5. Generates forecasts for `t+1` through `t+24`.
-6. Selects the feature profile and prediction strategy using validation data.
-7. Refits the selected model with the combined training and validation periods.
-8. Evaluates the final model on the held-out test period and exports the tables and figures.
+1. Loads PV generation and meteorological datasets.
+2. Performs data integrity checks and timestamp validation.
+3. Applies the chronological train/validation/test protocol.
+4. Constructs historical input windows.
+5. Generates multi-step PV power forecasts.
+6. Selects configurations using validation performance only.
+7. Refits the selected model configuration.
+8. Evaluates performance on the held-out test period.
+9. Exports prediction results, tables, and figures.
+
+For TRACE, chronological forecasting means that predictors are restricted to information available at the forecast origin. It does not imply causal-effect identification.
 
 ## Quick start
-
-### 1. Clone the repository
 
 ```bash
 git clone https://github.com/johnnyone89/TCFN4PVForecasting.git
 cd TCFN4PVForecasting
-```
 
-### 2. Create the environment
-
-```bash
 python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
+source .venv/bin/activate        # Windows: .venv\\Scripts\\activate
+
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-The reference TRACE environment used Python 3.9.25, pandas 2.3.3, NumPy 2.0.2, scikit-learn 1.6.1, and PyTorch 2.8.0.
-
-For the TensorFlow-based TCFN notebooks, additionally run:
+For the TensorFlow-based TCFN implementation:
 
 ```bash
 pip install -r requirements-tcfn.txt
 ```
 
-### 3. Check the datasets
-
-The following files must contain the study observations:
-
-```text
-data/Dangjin_Landfill_PV_Dataset.csv
-data/Gwangyang_Port_Site2_PV_Dataset.csv
-```
-
-The required columns and study coverage are listed in [`data/README.md`](data/README.md). You may also point TRACE to another data directory by setting `TRACE_DATA_DIR`.
-
-> **Current data status:** the CSV files presently visible in the public repository are empty filename placeholders. The actual study datasets must be uploaded before an external user can reproduce the reported results.
-
-### 4. Run the notebook
+Run the notebooks sequentially:
 
 ```bash
 jupyter lab code/TRACE_Guarded_Dual_Strategy_PV_Forecasting.ipynb
 ```
 
-Open the notebook and run all cells sequentially. Generated predictions, evaluation tables, figures, and model bundles are saved to `TRACE_outputs/`.
+## Experimental protocol
 
-## Expected results
+The study uses a strict chronological evaluation setting:
 
-With the same datasets, chronological split, and modeling settings, the reproduced performance should be close to the values reported in the paper:
+- Training period: January 2015–April 2017
+- Validation period: May 2017–June 2018
+- Test period: July 2018–August 2019
 
-| Site | Approximate RMSE | Approximate MAE | Approximate R² |
-|---|---:|---:|---:|
-| Dangjin | about 101 kW | about 51 kW | about 0.83 |
-| Gwangyang | about 167 kW | about 83 kW | about 0.82 |
+The forecasting task uses the preceding 168 hours to generate direct forecasts from `t+1` to `t+24`.
 
-Exact values may differ slightly depending on the operating system, package build, hardware, and numerical backend. The reproduced values should nevertheless remain close to the reported range when the same data, split, random seeds, and execution order are used.
+The held-out test period is not used for hyperparameter selection, configuration revision, or model design decisions.
 
-## Notes
+## Reproducibility notes
 
-- Execute notebook cells in order rather than running isolated later sections.
-- Do not use the held-out test period to revise the selected configuration.
-- Keep zero-generation periods in the primary evaluation, as implemented in the notebook.
-- The main purpose of this repository is methodological reproduction; bit-for-bit numerical identity across every environment is not expected.
+Small numerical differences may occur depending on:
+
+- operating system;
+- Python package versions;
+- GPU/CUDA configuration;
+- deep-learning backend implementation; and
+- floating-point computation.
+
+The repository is intended for scientific reproduction of the reported experimental workflow rather than forcing identical numerical outputs across every environment.
 
 ## Citation
 
-For the published TCFN study, please cite:
+If you use this repository, code, datasets, or experimental protocol in academic work, please cite:
 
-> Shin, Y.; Moon, J. **Trend–Context Fusion Network with Multi-Head Attention for Solar Photovoltaic Power Forecasting.** *Journal of Platform Technology* **2026**, *14*(1), 3–21. https://doi.org/10.23023/JPT.2026.14.1.003
-
-Citation information for TRACE will be added after publication.
+```bibtex
+@article{shin2026tcfn,
+  author  = {Shin, Y. and Moon, J.},
+  title   = {Trend--Context Fusion Network with Multi-Head Attention for Solar Photovoltaic Power Forecasting},
+  journal = {Journal of Platform Technology},
+  year    = {2026},
+  volume  = {14},
+  number  = {1},
+  pages   = {3--21},
+  doi     = {10.23023/JPT.2026.14.1.003}
+}
+```
 
 ## Contact
 
-**Jihoon Moon, Ph.D.**<br>
-Assistant Professor, Department of Data Science<br>
-Duksung Women's University, Seoul 01369, Republic of Korea<br>
+**Jihoon Moon, Ph.D.**  
+Assistant Professor, Department of Data Science  
+Duksung Women's University, Seoul 01369, Republic of Korea  
 [jmoon25@duksung.ac.kr](mailto:jmoon25@duksung.ac.kr)
